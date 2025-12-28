@@ -1,0 +1,276 @@
+:root {
+  --bg-dark: #121214;
+  --bg-dark-secondary: #1e1e24;
+  --bg-dark-tertiary: #2a2a35;
+
+  --primary-cyan: #00f2ea;
+  --primary-cyan-dim: #00b3ad;
+  --primary-cyan-transparent: rgba(0, 242, 234, 0.1);
+
+  --text-main: #e0e0e0;
+  --text-secondary: #8a8a9b;
+  --text-muted: #545464;
+
+  --error: #ff4d4d;
+  --success: #00f2ea;
+
+  --font-family: 'Roboto Mono', monospace;
+}
+
+[data-theme="light"] {
+  --bg-dark: #f0f2f5;
+  --bg-dark-secondary: #ffffff;
+  --bg-dark-tertiary: #e4e6eb;
+
+  --text-main: #1c1e21;
+  --text-secondary: #65676b;
+  --text-muted: #8a8d91;
+}
+
+[data-theme="monkeytype"] {
+  --bg-dark: #323437;
+  --bg-dark-secondary: #2c2e31;
+  --bg-dark-tertiary: #1e1f21;
+
+  --primary-cyan: #e2b714;
+  --primary-cyan-dim: #bc9810;
+  --primary-cyan-transparent: rgba(226, 183, 20, 0.1);
+
+  --text-main: #d1d0c5;
+  --text-secondary: #646669;
+  --text-muted: #4b4d50;
+
+  --error: #ca4754;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--primary-cyan);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  background: var(--bg-dark-secondary);
+  border: 1px solid var(--text-muted);
+  color: var(--text-main);
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--primary-cyan);
+  outline: none;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: var(--primary-cyan);
+  color: var(--bg-dark);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-cyan-dim);
+}
+
+.btn-ghost {
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+  color: var(--text-main);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.text-cyan {
+  color: var(--primary-cyan);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+/* Navbar Search */
+.nav-search {
+  flex: 1;
+  max-width: 400px;
+  position: relative;
+  margin: 0 2rem;
+}
+
+.nav-search input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background-color: var(--bg-dark-secondary);
+  border: 1px solid transparent;
+  transition: all 0.3s;
+}
+
+.nav-search input:focus {
+  border-color: var(--primary-cyan);
+  background-color: var(--bg-dark-tertiary);
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-dark-secondary);
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.search-result-item {
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.search-result-item:hover {
+  background-color: var(--bg-dark-tertiary);
+}
+
+/* User Dropdown */
+.user-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--bg-dark-secondary);
+  border-radius: 8px;
+  padding: 0.5rem;
+  min-width: 150px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  margin-top: 0.5rem;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--text-main);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-dark-tertiary);
+  color: var(--primary-cyan);
+}
+
+/* Typing Test Words */
+.word {
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.word .correct {
+  color: var(--text-main);
+}
+
+.word .incorrect {
+  color: var(--error);
+}
+
+.word.active {
+  color: var(--text-main);
+}
+
+.word.correct {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.word.incorrect {
+  color: var(--error);
+  opacity: 0.6;
+}
+
+/* Typing cursor animation */
+@keyframes blink {
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.typing-cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+}
